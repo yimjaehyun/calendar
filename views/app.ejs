@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>unsandwich</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #222326">
+  <div class="container" style="padding-top: 175px">
+    <div class="row justify-content-center">
+        <div class="col-12" style="padding-bottom: 50px">
+          <p style="text-align: center">
+            <a href="." style="color: #1ED760; text-decoration: none; font-size: 66px;">
+                UCR schedule to Google Calender
+            </a>
+          </p>
+        </div>
+        <textarea id="textarea" class="span6" rows="3" placeholder="Paste Class Schedule Here" required></textarea>
+        <div class="col-12 text-center" style="padding-bottom: 25px">
+          <button id="start-btn"
+          class="btn btn-outline-secondary"
+          style="color: #4CFF8D; border-color: #4CFF8D"
+          type="button">Get Started Now</button>
+        </div>
+    </div>
+  </div>
+
+
+  <script>
+  (function($) {
+    /**
+    When clicked, redirect to authorization.
+    **/
+    $("#start-btn").click(function() {
+      $.post('/auth', {schedule: $("#textarea").val()}, function(data) {
+        window.location.href = data;
+      });
+    });
+  })(jQuery);
+  </script>
+</body>
+</html>

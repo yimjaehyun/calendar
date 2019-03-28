@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>unsandwich</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #222326">
+  <div class="container" style="padding-top: 175px">
+    <div class="row justify-content-center">
+        <div class="col-12" style="padding-bottom: 50px">
+          <p style="text-align: center">
+            <a href="." style="color: #1ED760; text-decoration: none; font-size: 66px;">
+                Done :)
+            </a>
+          </p>
+        </div>
+    </div>
+  </div>
+
+
+  <script>
+  (function($) {
+    /**
+    When clicked, redirect to authorization.
+    **/
+    $("#start-btn").click(function() {
+      $.get('/auth', function(data) {
+        window.location.href = data;
+      });
+    });
+  })(jQuery);
+  </script>
+</body>
+</html>
